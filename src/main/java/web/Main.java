@@ -3,7 +3,8 @@ package web;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 import web.Config.AppConfig;
 import web.Model.User;
-import web.UserDao.UserDaoHibernateImpl;
+import web.UserDao.UserDao;
+
 
 public class Main {
     private static final User user1 = new User("Ilya", "Lukanchev");
@@ -14,9 +15,8 @@ public class Main {
     public static void main(String[] args) {
         AnnotationConfigApplicationContext context =
                 new AnnotationConfigApplicationContext(AppConfig.class);
-        UserDaoHibernateImpl userDaoHibernate = context.getBean(UserDaoHibernateImpl.class);
-        userDaoHibernate.createUsersTable();
-
+        UserDao userDao = context.getBean(UserDao.class);
+        userDao.createUsersTable();
         context.close();
     }
 }
