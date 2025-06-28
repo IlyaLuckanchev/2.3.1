@@ -35,4 +35,8 @@ public class User {
     public void setSurName(String surName) {
         this.surName = surName;
     }
+
+    public Long getId() {
+        return id;
+    }
 }
