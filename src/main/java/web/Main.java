@@ -3,7 +3,6 @@ package web;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 import web.Config.AppConfig;
 import web.Model.User;
-import web.UserDao.UserDao;
 import web.UserDaoImpl.UserService;
 import web.UserDaoImpl.UserServiceImpl;
 
