@@ -13,7 +13,7 @@ public class User {
     private Long id;
     @Column (name = "name")
     private String name;
-    @Column (name = "surName")
+    @Column (name = "surname")
     private String surName;
 
     public User(String name, String surName) {
@@ -42,5 +42,13 @@ public class User {
 
     public Long getId() {
         return id;
+    }
+
+    @Override
+    public String toString() {
+        return "User{" +
+                "name='" + name + '\'' +
+                ", surName='" + surName + '\'' +
+                '}';
     }
 }

@@ -4,6 +4,8 @@ import org.springframework.context.annotation.AnnotationConfigApplicationContext
 import web.Config.AppConfig;
 import web.Model.User;
 import web.UserDao.UserDao;
+import web.UserDaoImpl.UserService;
+import web.UserDaoImpl.UserServiceImpl;
 
 
 public class Main {
@@ -15,8 +17,13 @@ public class Main {
     public static void main(String[] args) {
         AnnotationConfigApplicationContext context =
                 new AnnotationConfigApplicationContext(AppConfig.class);
-        UserDao userDao = context.getBean(UserDao.class);
-        userDao.createUsersTable();
+        UserService userService = context.getBean(UserServiceImpl.class);
+        userService.addUser(user1);
+        userService.addUser(user2);
+        userService.addUser(user3);
+        userService.deleteUser(2L);
+        userService.updateUser("Nicola", "Svetozarov", 3L);
+        System.out.println(userService.getAllUsers());
         context.close();
     }
 }

@@ -1,12 +1,23 @@
 package web.Controller;
 
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.*;
+import web.Model.User;
+import web.UserDao.UserDao;
+import java.util.List;
 
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestParam;
-
+@RestController
+@RequestMapping("/api/users")
 public class UserController {
-    @GetMapping("/user")
-    public String getUserRedact (@RequestParam(required = false) Integer count) {
-        return null;
+    private final UserDao userDao;
+
+    @Autowired
+    public UserController(UserDao userDao) {
+        this.userDao = userDao;
+    }
+
+    @GetMapping
+    public List<User> getAllUsers() {
+        return userDao.getUser();
     }
 }
