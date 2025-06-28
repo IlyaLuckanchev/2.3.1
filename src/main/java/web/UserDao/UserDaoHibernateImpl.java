@@ -1,6 +1,7 @@
 package web.UserDao;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
 import web.Model.User;
 import javax.persistence.EntityManager;
@@ -8,13 +9,13 @@ import javax.persistence.PersistenceContext;
 import javax.persistence.Query;
 import java.util.List;
 
-
+@Repository
 public class UserDaoHibernateImpl implements UserDao {
 
     @PersistenceContext
     private EntityManager entityManager;
     @Autowired
-    private User user;
+    User user;
 
     @Override
     @Transactional
