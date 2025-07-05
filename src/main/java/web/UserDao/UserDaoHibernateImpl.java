@@ -57,10 +57,9 @@ public class UserDaoHibernateImpl implements UserDao {
         return query.getResultList();
     }
     @Override
+    @Transactional
     public User getUserById(Long id) {
-        Query query = entityManager.createNativeQuery("SELECT u FROM User WHERE id = ?");
-        query.setParameter(1, id);
-        return (User) query.getSingleResult();
+        return entityManager.find(User.class, id);
     }
 
 }

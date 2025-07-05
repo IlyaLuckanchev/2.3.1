@@ -13,7 +13,7 @@ public class UserController {
     @Autowired
     private UserServiceImpl userServiceImpl;
 
-    @GetMapping
+    @GetMapping("/user")
     public String getAllUsers(Model model) {
         model.addAttribute("user", userServiceImpl.getAllUsers());
         return "user";
