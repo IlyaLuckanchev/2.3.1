@@ -22,7 +22,7 @@ public class Main {
         userService.addUser(user3);
         userService.deleteUser(2L);
         userService.updateUser("Nicola", "Svetozarov", 3L);
-        System.out.println(userService.getAllUsers());
+        System.out.println(userService.getUserById(1L).toString());
         context.close();
     }
 }

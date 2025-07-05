@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>User Management</title>
+    <!-- Bootstrap 5 CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        .action-btns {
+            white-space: nowrap;
+        }
+    </style>
+</head>
+<body>
+<div class="container mt-4">
+    <div class="d-flex justify-content-between align-items-center mb-4">
+        <h1>User List</h1>
+        <a href="/user/add" class="btn btn-primary">Add New User</a>
+    </div>
+
+    <!-- Таблица пользователей -->
+    <div class="table-responsive">
+        <table class="table table-striped table-hover">
+            <thead class="table-dark">
+            <tr>
+                <th>ID</th>
+                <th>First Name</th>
+                <th>Last Name</th>
+                <th class="action-btns">Actions</th>
+            </tr>
+            </thead>
+            <tbody>
+            <!-- Проверка на пустой список -->
+            <tr th:if="${user.empty}">
+                <td colspan="4" class="text-center">No users found</td>
+            </tr>
+
+            <!-- Отображение списка пользователей -->
+            <tr th:each="user : ${user}">
+                <td th:text="${user.id}">ID</td>
+                <td th:text="${user.name}">First Name</td>
+                <td th:text="${user.surName}">Last Name</td>
+                <td class="action-btns">
+                    <a th:href="@{/user/edit/{id}(id=${user.id})"
+                       class="btn btn-sm btn-warning me-2">Edit</a>
+                    <a th:href="@{/user/delete/{id}(id=${user.id})"
+                       class="btn btn-sm btn-danger"
+                       onclick="return confirm('Are you sure?')">Delete</a>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
+
+<!-- Bootstrap 5 JS Bundle with Popper -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

@@ -8,4 +8,5 @@ public interface UserService {
     void updateUser(String name, String surName, Long id);
     void deleteUser(Long id);
     void addUser(User user);
+    User getUserById(Long id);
 }

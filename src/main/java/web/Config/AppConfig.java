@@ -48,7 +48,6 @@ public class AppConfig {
         props.put("hibernate.show_sql", env.getProperty("hibernate.show_sql"));
         props.put("hibernate.hbm2ddl.auto", env.getProperty("hibernate.hbm2ddl.auto"));
         em.setJpaProperties(props);
-
         return em;
     }
 
