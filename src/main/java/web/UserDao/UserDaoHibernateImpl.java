@@ -14,8 +14,6 @@ public class UserDaoHibernateImpl implements UserDao {
 
     @PersistenceContext
     private EntityManager entityManager;
-    @Autowired
-    User user;
 
     @Override
     @Transactional
