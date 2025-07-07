@@ -21,18 +21,18 @@ public class UserController {
     @GetMapping("/add")
     public String showAddForm(Model model) {
         model.addAttribute("user", new User());
-        return "add-user";
+        return "user";
     }
-    @GetMapping("/delete/{id}")
+    @GetMapping("/delete")
     public String deleteUser(@PathVariable Long id) {
         userServiceImpl.deleteUser(id);
         return "redirect:/user";
     }
-    @GetMapping("/edit/{id}")
+    @GetMapping("/edit")
     public String showEditForm(@PathVariable Long id, Model model) {
         User user = userServiceImpl.getUserById(id);
         model.addAttribute("user", user);
-        return "edit-user";
+        return "user";
     }
 
 }
